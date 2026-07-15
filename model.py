@@ -54,8 +54,15 @@ def make_1d_array(values: list[int | float]):
 
     return np.array(values)
 
-# Step 9 - get_array_shape (not yet solved)
-# TODO: implement
+# Step 9 - get_array_shape
+import numpy as np
+from numpy.typing import NDArray
+
+
+def get_array_shape(arr: NDArray):
+    """Return the shape tuple of a NumPy array."""
+
+    return arr.shape
 
 # Step 10 - get_array_dtype (not yet solved)
 # TODO: implement
