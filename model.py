@@ -42,8 +42,11 @@ def decode_int(token_id: int, itos: dict[int, str]):
 
     return itos[token_id]
 
-# Step 7 - decode_ids (not yet solved)
-# TODO: implement
+# Step 7 - decode_ids
+def decode_ids(ids: list[int], itos: dict[int, str]):
+    """Decode a list of token ids into a string using itos."""
+
+    return ''.join(map(lambda token_id: decode_int(token_id, itos), ids))
 
 # Step 8 - make_1d_array (not yet solved)
 # TODO: implement
