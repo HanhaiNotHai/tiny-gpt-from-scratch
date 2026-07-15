@@ -48,8 +48,11 @@ def decode_ids(ids: list[int], itos: dict[int, str]):
 
     return ''.join(map(lambda token_id: decode_int(token_id, itos), ids))
 
-# Step 8 - make_1d_array (not yet solved)
-# TODO: implement
+# Step 8 - make_1d_array
+def make_1d_array(values: list[int | float]):
+    """Create a 1D NumPy array from a Python list of numbers."""
+
+    return np.array(values)
 
 # Step 9 - get_array_shape (not yet solved)
 # TODO: implement
