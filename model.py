@@ -18,8 +18,11 @@ def build_stoi(vocab: list[str]):
 
     return {c: i for i, c in enumerate(vocab)}
 
-# Step 3 - build_itos (not yet solved)
-# TODO: implement
+# Step 3 - build_itos
+def build_itos(vocab: list[str]):
+    """Return a dict mapping each index 0..len(vocab)-1 to its character."""
+
+    return {i: c for i, c in enumerate(vocab)}
 
 # Step 4 - encode_char (not yet solved)
 # TODO: implement
