@@ -64,9 +64,6 @@ def get_array_shape(arr: NDArray):
     return arr.shape
 
 # Step 10 - get_array_dtype
-import numpy as np
-
-
 def get_array_dtype(arr: NDArray):
     """Return the dtype of a NumPy array."""
 
