@@ -30,8 +30,11 @@ def encode_char(ch: str, stoi: dict[str, int]):
 
     return stoi[ch]
 
-# Step 5 - encode_string (not yet solved)
-# TODO: implement
+# Step 5 - encode_string
+def encode_string(text: str, stoi: dict[str, int]):
+    """Encode a full string into a list of token ids using stoi."""
+
+    return list(map(lambda ch: encode_char(ch, stoi), text))
 
 # Step 6 - decode_int (not yet solved)
 # TODO: implement
