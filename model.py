@@ -111,8 +111,11 @@ def elementwise_add(a: NDArray, b: NDArray):
 
     return a + b
 
-# Step 18 - elementwise_multiply (not yet solved)
-# TODO: implement
+# Step 18 - elementwise_multiply
+def elementwise_multiply(a: NDArray, b: NDArray):
+    """Return the elementwise product of two same-shape arrays."""
+
+    return a * b
 
 # Step 19 - scalar_broadcast_add (not yet solved)
 # TODO: implement
