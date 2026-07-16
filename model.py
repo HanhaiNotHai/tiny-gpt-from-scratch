@@ -252,8 +252,11 @@ def pick_block_size(default_size: int):
 
     return 1 if default_size < 1 else default_size
 
-# Step 39 - slice_x_at_offset (not yet solved)
-# TODO: implement
+# Step 39 - slice_x_at_offset
+def slice_x_at_offset(data: NDArray, i: int, block_size: int):
+    """Return the input window data[i : i + block_size]."""
+
+    return data[i : i + block_size]
 
 # Step 40 - slice_y_at_offset (not yet solved)
 # TODO: implement
