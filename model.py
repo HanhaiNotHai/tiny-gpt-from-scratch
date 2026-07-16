@@ -550,8 +550,11 @@ def linear_backward_dx(dy: NDArray, cache: dict[str, NDArray]):
 
     return matmul(dy, cache['w'].T)
 
-# Step 78 - linear_backward_dw (not yet solved)
-# TODO: implement
+# Step 78 - linear_backward_dw
+def linear_backward_dw(dy: NDArray, cache: dict[str, NDArray]):
+    """Return dL/dW for a linear layer Y = X @ W."""
+
+    return matmul(cache['x'].T, dy)
 
 # Step 79 - bias_add_forward (not yet solved)
 # TODO: implement
