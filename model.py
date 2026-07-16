@@ -76,13 +76,16 @@ def make_2d_zeros(rows: int, cols: int):
     return np.zeros((rows, cols))
 
 # Step 12 - make_2d_random
-def make_2d_random(rows, cols, seed):
+def make_2d_random(rows: int, cols: int, seed=None):
     """Return a (rows, cols) array of uniform floats in [0, 1) seeded by `seed`."""
 
     return np.random.default_rng(seed).random((rows, cols))
 
-# Step 13 - index_element (not yet solved)
-# TODO: implement
+# Step 13 - index_element
+def index_element(arr, i, j):
+    """Return the scalar element at position (i, j) of a 2D array."""
+    # TODO: return the value at row i, column j of arr
+    pass
 
 # Step 14 - slice_row (not yet solved)
 # TODO: implement
