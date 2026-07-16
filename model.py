@@ -209,8 +209,13 @@ def stable_softmax_1d(logits: NDArray):
     sum_exp_logits = sum_keepdims(exp_logits)
     return exp_logits / sum_exp_logits
 
-# Step 33 - stable_softmax_2d_rowwise (not yet solved)
-# TODO: implement
+# Step 33 - stable_softmax_2d_rowwise
+def stable_softmax_2d_rowwise(logits: NDArray):
+    """Row-wise numerically stable softmax of a 2D logits array."""
+
+    exp_logits = array_exp(logits - max_along_axis(logits, axis=-1)[..., None])
+    sum_exp_logits = sum_keepdims(exp_logits, axis=-1)
+    return exp_logits / sum_exp_logits
 
 # Step 34 - read_text_file (not yet solved)
 # TODO: implement
