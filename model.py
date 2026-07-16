@@ -177,8 +177,11 @@ def transpose_matrix(arr: NDArray):
 
     return arr.T
 
-# Step 29 - sum_keepdims (not yet solved)
-# TODO: implement
+# Step 29 - sum_keepdims
+def sum_keepdims(arr: NDArray, axis=None) -> NDArray:
+    """Sum along `axis` while keeping that dimension as size 1."""
+
+    return np.sum(arr, axis, keepdims=True)
 
 # Step 30 - naive_softmax_1d (not yet solved)
 # TODO: implement
