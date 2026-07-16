@@ -499,9 +499,11 @@ def train_neural_bigram_loop(
     """Run the neural bigram training loop and return {'w', 'loss_history'}."""
 
     loss_history = []
-    for step in range(1, num_steps + 1):
+    for step in range(num_steps):
         X, Y = get_batch(data, block_size, batch_size, np.random.default_rng())
-        step_info = run_one_training_step(w, X, Y, learning_rate)
+        ids = X.reshape(-1)
+        targets = Y.reshape(-1)
+        step_info = run_one_training_step(w, ids, targets, learning_rate)
         w = step_info['w']
         if step % log_every == 0:
             loss_history.append(step_info['loss'])
