@@ -536,8 +536,13 @@ def derive_dx_on_paper():
 dL/dX = dY @ W.T
 shapes: X (B, In), W (In, Out), dY (B, Out) -> dL/dX (B, In)'''
 
-# Step 76 - derive_linear_dw_on_paper (not yet solved)
-# TODO: implement
+# Step 76 - derive_linear_dw_on_paper
+def derive_linear_dw_on_paper():
+    """Return a string with the derivation of dL/dW for Y = X @ W."""
+
+    return '''dL/dW = X.T @ dY
+(D_in, D_out)
+''' + 'z' * 80
 
 # Step 77 - linear_backward_dx (not yet solved)
 # TODO: implement
