@@ -153,8 +153,11 @@ def sum_axis0(arr: NDArray) -> NDArray:
 
     return np.sum(arr, axis=0)
 
-# Step 25 - sum_axis1 (not yet solved)
-# TODO: implement
+# Step 25 - sum_axis1
+def sum_axis1(arr: NDArray) -> NDArray:
+    """Sum a 2D array along axis 1, returning a 1D array of row sums."""
+
+    return np.sum(arr, axis=1)
 
 # Step 26 - max_along_axis (not yet solved)
 # TODO: implement
