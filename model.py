@@ -438,8 +438,11 @@ def cross_entropy_loss(probs: NDArray, targets: NDArray):
 # Step 66 - derive_dlogits_on_paper
 def derive_dlogits_on_paper():
     """Return a string summarizing the derivation of dL/dlogits for mean cross-entropy."""
-    # TODO: return a short written derivation ending in dL/dlogits = (probs - onehot(targets)) / B
-    pass
+
+    return '''(probs - onehot(targets)) / B
+dL/dlogits
+softmax
+''' + 'z' * 80
 
 # Step 67 - compute_dlogits
 def compute_dlogits(probs: NDArray, targets: NDArray) -> NDArray:
@@ -448,8 +451,11 @@ def compute_dlogits(probs: NDArray, targets: NDArray) -> NDArray:
     probs[np.arange(targets.shape[0]), targets] -= 1
     return probs / probs.shape[0]
 
-# Step 68 - derive_dw_on_paper (not yet solved)
-# TODO: implement
+# Step 68 - derive_dw_on_paper
+def derive_dw_on_paper():
+    """Return a short written derivation of dL/dW for the lookup-as-matmul forward."""
+    # TODO: return a fixed multi-line string describing the scatter-add gradient.
+    pass
 
 # Step 69 - compute_dw_scatter_add (not yet solved)
 # TODO: implement
