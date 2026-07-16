@@ -565,8 +565,11 @@ def bias_add_forward(x: NDArray, b: NDArray):
 
     return {'y': x + b, 'cache': {'b_shape': b.shape}}
 
-# Step 80 - bias_add_backward_db (not yet solved)
-# TODO: implement
+# Step 80 - bias_add_backward_db
+def bias_add_backward_db(dy: NDArray, cache: dict[str, tuple[int, ...]]):
+    """Compute db from upstream gradient dy for y = x + b."""
+
+    return sum_axis0(dy)
 
 # Step 81 - relu_forward (not yet solved)
 # TODO: implement
