@@ -390,12 +390,14 @@ def scale_w_small(w_matrix: NDArray, scale):
 def one_hot_encode_batch(ids: NDArray, vocab_size: int):
     """Convert a 1D array of token ids into a (N, vocab_size) one-hot matrix."""
 
-    matrix = make_2d_zeros(ids.size, vocab_size)
-    matrix[np.arange(ids.size), ids] = 1
-    return matrix
+    onehot = make_2d_zeros(ids.size, vocab_size)
+    onehot[np.arange(ids.size), ids] = 1
+    return onehot
 
-# Step 60 - forward_logits_onehot (not yet solved)
-# TODO: implement
+# Step 60 - forward_logits_onehot
+def forward_logits_onehot(onehot, w_matrix):
+    # TODO: compute logits for the neural bigram model as the matrix product of one-hot inputs and W.
+    pass
 
 # Step 61 - observe_lookup_equivalence (not yet solved)
 # TODO: implement
