@@ -191,8 +191,15 @@ def naive_softmax_1d(logits: NDArray):
     sum_exp_logits = sum_keepdims(exp_logits)
     return exp_logits / sum_exp_logits
 
-# Step 31 - softmax_overflow_demo (not yet solved)
-# TODO: implement
+# Step 31 - softmax_overflow_demo
+def softmax_overflow_demo(large_value: float):
+    """Show that naive exp overflows on a large logit.
+
+    Return {'naive_exp': float, 'overflowed': bool}.
+    """
+
+    naive_exp = array_exp(large_value)
+    return {'naive_exp': naive_exp, 'overflowed': np.isinf(naive_exp)}
 
 # Step 32 - stable_softmax_1d (not yet solved)
 # TODO: implement
