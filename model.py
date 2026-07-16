@@ -258,8 +258,11 @@ def slice_x_at_offset(data: NDArray, i: int, block_size: int):
 
     return data[i : i + block_size]
 
-# Step 40 - slice_y_at_offset (not yet solved)
-# TODO: implement
+# Step 40 - slice_y_at_offset
+def slice_y_at_offset(data: NDArray, i: int, block_size: int):
+    """Return the target window of length block_size starting at i+1."""
+
+    return data[i + 1 : i + 1 + block_size]
 
 # Step 41 - sample_random_batch_offsets (not yet solved)
 # TODO: implement
