@@ -417,8 +417,11 @@ def forward_logits_lookup(w: NDArray, ids: NDArray):
 
     return forward_logits_onehot(one_hot_encode_batch(ids, w.shape[0]), w)
 
-# Step 63 - logits_to_probs_rowwise (not yet solved)
-# TODO: implement
+# Step 63 - logits_to_probs_rowwise
+def logits_to_probs_rowwise(logits: NDArray):
+    '''convert a (B, V) logits matrix into a row-wise probability matrix'''
+
+    return stable_softmax_2d_rowwise(logits)
 
 # Step 64 - gather_correct_token_probs (not yet solved)
 # TODO: implement
