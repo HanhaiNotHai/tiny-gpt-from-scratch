@@ -300,8 +300,13 @@ def allocate_count_matrix(vocab_size: int):
 
     return np.zeros((vocab_size, vocab_size), dtype=np.int64)
 
-# Step 46 - loop_fill_counts (not yet solved)
-# TODO: implement
+# Step 46 - loop_fill_counts
+def loop_fill_counts(n_matrix: NDArray, data: NDArray):
+    """Increment n_matrix[curr, next] for every consecutive pair in data."""
+
+    for i, j in zip(data[:-1], data[1:]):
+        n_matrix[i, j] += 1
+    return n_matrix
 
 # Step 47 - vectorize_counts_add_at (not yet solved)
 # TODO: implement
