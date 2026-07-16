@@ -415,7 +415,7 @@ def observe_lookup_equivalence(w: NDArray, ids: NDArray):
 def forward_logits_lookup(w: NDArray, ids: NDArray):
     """Return logits (B, V) by gathering rows of w at positions ids."""
 
-    return forward_logits_onehot(one_hot_encode_batch(ids, w.shape[0]), w)
+    return w[ids]
 
 # Step 63 - logits_to_probs_rowwise
 def logits_to_probs_rowwise(logits: NDArray):
@@ -486,8 +486,26 @@ def run_one_training_step(w: NDArray, ids: NDArray, targets: NDArray, learning_r
     new_w = sgd_update_w(w, dw, learning_rate)
     return {'w': new_w, 'loss': loss}
 
-# Step 72 - train_neural_bigram_loop (not yet solved)
-# TODO: implement
+# Step 72 - train_neural_bigram_loop
+def train_neural_bigram_loop(
+    w: NDArray,
+    data: NDArray,
+    block_size: int,
+    batch_size: int,
+    learning_rate: float,
+    num_steps: int,
+    log_every: int,
+):
+    """Run the neural bigram training loop and return {'w', 'loss_history'}."""
+
+    loss_history = []
+    for step in range(1, num_steps + 1):
+        X, Y = get_batch(data, block_size, batch_size, np.random.default_rng())
+        step_info = run_one_training_step(w, X, Y, learning_rate)
+        w = step_info['w']
+        if step % log_every == 0:
+            loss_history.append(step_info['loss'])
+    return {'w': w, 'loss_history': loss_history}
 
 # Step 73 - sample_from_neural_bigram (not yet solved)
 # TODO: implement
