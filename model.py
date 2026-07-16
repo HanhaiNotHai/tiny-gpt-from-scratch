@@ -347,8 +347,11 @@ def generate_sequence(p_matrix: NDArray, start_id: int, length: int, rng: Genera
         seq.append(sample_next_token(p_matrix, seq[-1], rng))
     return np.array(seq)
 
-# Step 53 - decode_generated_sequence (not yet solved)
-# TODO: implement
+# Step 53 - decode_generated_sequence
+def decode_generated_sequence(ids: list[int] | NDArray, itos: dict[int, str]):
+    """Decode a generated 1D array/list of token ids into a string via itos."""
+
+    return decode_ids(ids, itos)
 
 # Step 54 - log_prob_of_pair (not yet solved)
 # TODO: implement
