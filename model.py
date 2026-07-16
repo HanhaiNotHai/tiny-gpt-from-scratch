@@ -586,8 +586,11 @@ def relu_backward(dy: NDArray, cache: dict[str, NDArray]):
 
     return np.where(cache['x'] > 0, dy, 0)
 
-# Step 83 - softmax_cross_entropy_backward (not yet solved)
-# TODO: implement
+# Step 83 - softmax_cross_entropy_backward
+def softmax_cross_entropy_backward(probs: NDArray, targets: NDArray):
+    """Return dL/dlogits for mean cross-entropy with softmax probs."""
+
+    return compute_dlogits(probs, targets)
 
 # Step 84 - layernorm_forward_mean (not yet solved)
 # TODO: implement
