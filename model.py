@@ -165,8 +165,11 @@ def max_along_axis(arr: NDArray, axis=None):
 
     return np.max(arr, axis)
 
-# Step 27 - matmul (not yet solved)
-# TODO: implement
+# Step 27 - matmul
+def matmul(a: NDArray, b: NDArray) -> NDArray:
+    """Return the matrix product a @ b for 2D arrays a (M,K) and b (K,N)."""
+
+    return np.einsum('mk,kn->mn', a, b)
 
 # Step 28 - transpose_matrix (not yet solved)
 # TODO: implement
