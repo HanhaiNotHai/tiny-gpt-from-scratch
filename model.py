@@ -246,8 +246,11 @@ def slice_train_and_val(data: NDArray, split_idx: int):
 
     return data[:split_idx], data[split_idx:]
 
-# Step 38 - pick_block_size (not yet solved)
-# TODO: implement
+# Step 38 - pick_block_size
+def pick_block_size(default_size: int):
+    """Return the context length (block_size) for training windows."""
+
+    return 1 if default_size < 1 else default_size
 
 # Step 39 - slice_x_at_offset (not yet solved)
 # TODO: implement
