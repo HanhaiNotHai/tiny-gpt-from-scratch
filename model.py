@@ -105,8 +105,11 @@ def slice_subblock(arr: NDArray, r0: int, r1: int, c0: int, c1: int):
 
     return arr[r0:r1, c0:c1]
 
-# Step 17 - elementwise_add (not yet solved)
-# TODO: implement
+# Step 17 - elementwise_add
+def elementwise_add(a: NDArray, b: NDArray):
+    """Return the elementwise sum of two same-shape arrays."""
+
+    return a + b
 
 # Step 18 - elementwise_multiply (not yet solved)
 # TODO: implement
