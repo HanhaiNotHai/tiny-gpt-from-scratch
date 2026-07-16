@@ -353,8 +353,11 @@ def decode_generated_sequence(ids: list[int] | NDArray, itos: dict[int, str]):
 
     return decode_ids(ids, itos)
 
-# Step 54 - log_prob_of_pair (not yet solved)
-# TODO: implement
+# Step 54 - log_prob_of_pair
+def log_prob_of_pair(p_matrix: NDArray, current_id: int, next_id: int):
+    """Return the log probability of a single (current, next) bigram."""
+
+    return np.log(p_matrix[current_id, next_id])
 
 # Step 55 - sum_negative_log_probs (not yet solved)
 # TODO: implement
