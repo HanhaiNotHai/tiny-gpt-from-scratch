@@ -127,7 +127,7 @@ def scalar_broadcast_add(arr: NDArray, scalar: int | float):
 def vector_matrix_broadcast_add(matrix: NDArray, vector: NDArray):
     """Add a 1D vector to each row of a 2D matrix via broadcasting."""
 
-    return matrix + vector
+    return matrix + vector[None]
 
 # Step 21 - array_exp (not yet solved)
 # TODO: implement
