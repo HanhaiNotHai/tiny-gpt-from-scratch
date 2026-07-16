@@ -99,8 +99,11 @@ def slice_column(arr: NDArray, j: int):
 
     return arr[:, j]
 
-# Step 16 - slice_subblock (not yet solved)
-# TODO: implement
+# Step 16 - slice_subblock
+def slice_subblock(arr: NDArray, r0: int, r1: int, c0: int, c1: int):
+    """Return the sub-block arr[r0:r1, c0:c1] of a 2D array."""
+
+    return arr[r0:r1, c0:c1]
 
 # Step 17 - elementwise_add (not yet solved)
 # TODO: implement
