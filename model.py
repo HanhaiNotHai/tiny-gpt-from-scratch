@@ -423,8 +423,11 @@ def logits_to_probs_rowwise(logits: NDArray):
 
     return stable_softmax_2d_rowwise(logits)
 
-# Step 64 - gather_correct_token_probs (not yet solved)
-# TODO: implement
+# Step 64 - gather_correct_token_probs
+def gather_correct_token_probs(probs: NDArray, targets: NDArray):
+    """Return probs[i, targets[i]] for each i, shape (B,)."""
+
+    return probs[np.arange(targets.shape[0]), targets]
 
 # Step 65 - cross_entropy_loss (not yet solved)
 # TODO: implement
