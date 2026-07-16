@@ -320,8 +320,11 @@ def add_one_smoothing(n_matrix: NDArray):
 
     return scalar_broadcast_add(n_matrix, 1)
 
-# Step 49 - row_sums_of_counts (not yet solved)
-# TODO: implement
+# Step 49 - row_sums_of_counts
+def row_sums_of_counts(n_matrix: NDArray):
+    """Return per-row sums of n_matrix with shape (V, 1)."""
+
+    return sum_keepdims(n_matrix, axis=-1)
 
 # Step 50 - normalize_counts_to_probs (not yet solved)
 # TODO: implement
