@@ -240,8 +240,11 @@ def pick_split_point(n: int, train_frac: float):
 
     return int(n * train_frac)
 
-# Step 37 - slice_train_and_val (not yet solved)
-# TODO: implement
+# Step 37 - slice_train_and_val
+def slice_train_and_val(data: NDArray, split_idx: int):
+    """Split a 1D token-id array into (train, val) at split_idx."""
+
+    return data[:split_idx], data[split_idx:]
 
 # Step 38 - pick_block_size (not yet solved)
 # TODO: implement
