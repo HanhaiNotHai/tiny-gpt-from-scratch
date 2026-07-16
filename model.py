@@ -117,8 +117,11 @@ def elementwise_multiply(a: NDArray, b: NDArray):
 
     return a * b
 
-# Step 19 - scalar_broadcast_add (not yet solved)
-# TODO: implement
+# Step 19 - scalar_broadcast_add
+def scalar_broadcast_add(arr: NDArray, scalar: int | float):
+    """Return a new array equal to arr with scalar added to every element."""
+
+    return arr + scalar
 
 # Step 20 - vector_matrix_broadcast_add (not yet solved)
 # TODO: implement
