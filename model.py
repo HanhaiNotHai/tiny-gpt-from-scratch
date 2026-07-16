@@ -75,8 +75,11 @@ def make_2d_zeros(rows: int, cols: int):
 
     return np.zeros((rows, cols))
 
-# Step 12 - make_2d_random (not yet solved)
-# TODO: implement
+# Step 12 - make_2d_random
+def make_2d_random(rows, cols, seed):
+    """Return a (rows, cols) array of uniform floats in [0, 1) seeded by `seed`."""
+
+    return np.random.default_rng(seed).random((rows, cols))
 
 # Step 13 - index_element (not yet solved)
 # TODO: implement
