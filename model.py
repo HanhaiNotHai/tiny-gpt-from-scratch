@@ -411,8 +411,11 @@ def observe_lookup_equivalence(w: NDArray, ids: NDArray):
         'index_result': w[ids],
     }
 
-# Step 62 - forward_logits_lookup (not yet solved)
-# TODO: implement
+# Step 62 - forward_logits_lookup
+def forward_logits_lookup(w: NDArray, ids: NDArray):
+    """Return logits (B, V) by gathering rows of w at positions ids."""
+
+    return forward_logits_onehot(one_hot_encode_batch(ids, w.shape[0]), w)
 
 # Step 63 - logits_to_probs_rowwise (not yet solved)
 # TODO: implement
