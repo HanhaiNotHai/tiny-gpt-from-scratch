@@ -435,11 +435,18 @@ def cross_entropy_loss(probs: NDArray, targets: NDArray):
 
     return -np.mean(array_log(gather_correct_token_probs(probs, targets)))
 
-# Step 66 - derive_dlogits_on_paper (not yet solved)
-# TODO: implement
+# Step 66 - derive_dlogits_on_paper
+def derive_dlogits_on_paper():
+    """Return a string summarizing the derivation of dL/dlogits for mean cross-entropy."""
+    # TODO: return a short written derivation ending in dL/dlogits = (probs - onehot(targets)) / B
+    pass
 
-# Step 67 - compute_dlogits (not yet solved)
-# TODO: implement
+# Step 67 - compute_dlogits
+def compute_dlogits(probs: NDArray, targets: NDArray) -> NDArray:
+    """Gradient of mean cross-entropy w.r.t. logits. probs: (B,V), targets: (B,)."""
+
+    probs[np.arange(targets.shape[0]), targets] -= 1
+    return probs / probs.shape[0]
 
 # Step 68 - derive_dw_on_paper (not yet solved)
 # TODO: implement
