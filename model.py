@@ -395,9 +395,10 @@ def one_hot_encode_batch(ids: NDArray, vocab_size: int):
     return onehot
 
 # Step 60 - forward_logits_onehot
-def forward_logits_onehot(onehot, w_matrix):
-    # TODO: compute logits for the neural bigram model as the matrix product of one-hot inputs and W.
-    pass
+def forward_logits_onehot(onehot: NDArray, w_matrix: NDArray):
+    '''compute logits for the neural bigram model as the matrix product of one-hot inputs and W.'''
+
+    return matmul(onehot, w_matrix)
 
 # Step 61 - observe_lookup_equivalence (not yet solved)
 # TODO: implement
