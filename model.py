@@ -374,11 +374,17 @@ def average_nll(p_matrix: NDArray, data: NDArray):
 
     return sum_negative_log_probs(p_matrix, data) / (data.size - 1)
 
-# Step 57 - initialize_w_random (not yet solved)
-# TODO: implement
+# Step 57 - initialize_w_random
+def initialize_w_random(vocab_size: int, rng: Generator):
+    """Return a (vocab_size, vocab_size) float64 matrix of N(0,1) samples drawn from rng."""
 
-# Step 58 - scale_w_small (not yet solved)
-# TODO: implement
+    return rng.standard_normal((vocab_size, vocab_size))
+
+# Step 58 - scale_w_small
+def scale_w_small(w_matrix: NDArray, scale):
+    """Return w_matrix scaled by the given small factor."""
+
+    return w_matrix * scale
 
 # Step 59 - one_hot_encode_batch (not yet solved)
 # TODO: implement
