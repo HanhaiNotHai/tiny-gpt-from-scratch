@@ -93,8 +93,11 @@ def slice_row(arr: NDArray, i: int) -> NDArray:
 
     return arr[i]
 
-# Step 15 - slice_column (not yet solved)
-# TODO: implement
+# Step 15 - slice_column
+def slice_column(arr: NDArray, j: int):
+    """Return column j of a 2D array as a 1D array of length R."""
+
+    return arr[:, j]
 
 # Step 16 - slice_subblock (not yet solved)
 # TODO: implement
