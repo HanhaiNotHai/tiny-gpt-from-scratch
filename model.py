@@ -82,10 +82,10 @@ def make_2d_random(rows: int, cols: int, seed=None):
     return np.random.default_rng(seed).random((rows, cols))
 
 # Step 13 - index_element
-def index_element(arr, i, j):
+def index_element(arr: NDArray, i: int, j: int):
     """Return the scalar element at position (i, j) of a 2D array."""
-    # TODO: return the value at row i, column j of arr
-    pass
+
+    return arr[i, j]
 
 # Step 14 - slice_row (not yet solved)
 # TODO: implement
