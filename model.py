@@ -87,8 +87,11 @@ def index_element(arr: NDArray, i: int, j: int):
 
     return arr[i, j]
 
-# Step 14 - slice_row (not yet solved)
-# TODO: implement
+# Step 14 - slice_row
+def slice_row(arr: NDArray, i: int) -> NDArray:
+    """Return row i of a 2D array as a 1D view."""
+
+    return arr[i]
 
 # Step 15 - slice_column (not yet solved)
 # TODO: implement
