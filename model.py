@@ -298,7 +298,7 @@ def get_batch(data: NDArray, block_size: int, batch_size: int, rng: Generator):
 def allocate_count_matrix(vocab_size: int):
     """Allocate a (V, V) integer zero matrix for bigram counts."""
 
-    return make_2d_zeros(vocab_size, vocab_size)
+    return np.zeros((vocab_size, vocab_size), dtype=np.int64)
 
 # Step 46 - loop_fill_counts (not yet solved)
 # TODO: implement
