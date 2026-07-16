@@ -474,8 +474,17 @@ def sgd_update_w(w: NDArray, dw: NDArray, learning_rate: float):
 
     return w - learning_rate * dw
 
-# Step 71 - run_one_training_step (not yet solved)
-# TODO: implement
+# Step 71 - run_one_training_step
+def run_one_training_step(w: NDArray, ids: NDArray, targets: NDArray, learning_rate: float):
+    """Run forward, loss, backward, and SGD update once. Return {'w': new_w, 'loss': float}."""
+
+    logits = forward_logits_lookup(w, ids)
+    probs = stable_softmax_2d_rowwise(logits)
+    loss = cross_entropy_loss(probs, targets)
+    dlogits = compute_dlogits(probs, targets)
+    dw = compute_dw_scatter_add(ids, dlogits, w.shape[0])
+    new_w = sgd_update_w(w, dw, learning_rate)
+    return {'w': new_w, 'loss': loss}
 
 # Step 72 - train_neural_bigram_loop (not yet solved)
 # TODO: implement
