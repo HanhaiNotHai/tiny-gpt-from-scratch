@@ -171,8 +171,11 @@ def matmul(a: NDArray, b: NDArray) -> NDArray:
 
     return np.einsum('mk,kn->mn', a, b)
 
-# Step 28 - transpose_matrix (not yet solved)
-# TODO: implement
+# Step 28 - transpose_matrix
+def transpose_matrix(arr: NDArray):
+    """Return the transpose of a 2D array."""
+
+    return arr.T
 
 # Step 29 - sum_keepdims (not yet solved)
 # TODO: implement
