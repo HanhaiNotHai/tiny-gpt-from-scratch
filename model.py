@@ -468,8 +468,11 @@ def compute_dw_scatter_add(ids: NDArray, dlogits: NDArray, vocab_size: int):
 
     return matmul(one_hot_encode_batch(ids, vocab_size).T, dlogits)
 
-# Step 70 - sgd_update_w (not yet solved)
-# TODO: implement
+# Step 70 - sgd_update_w
+def sgd_update_w(w: NDArray, dw: NDArray, learning_rate: float):
+    """Apply one SGD step: return w - learning_rate * dw as a new array."""
+
+    return w - learning_rate * dw
 
 # Step 71 - run_one_training_step (not yet solved)
 # TODO: implement
