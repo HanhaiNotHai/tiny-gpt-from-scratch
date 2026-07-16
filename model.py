@@ -314,8 +314,11 @@ def vectorize_counts_add_at(vocab_size: int, data: NDArray):
 
     return loop_fill_counts(allocate_count_matrix(vocab_size), data)
 
-# Step 48 - add_one_smoothing (not yet solved)
-# TODO: implement
+# Step 48 - add_one_smoothing
+def add_one_smoothing(n_matrix: NDArray):
+    """Return n_matrix with every entry incremented by 1 (Laplace smoothing)."""
+
+    return scalar_broadcast_add(n_matrix, 1)
 
 # Step 49 - row_sums_of_counts (not yet solved)
 # TODO: implement
