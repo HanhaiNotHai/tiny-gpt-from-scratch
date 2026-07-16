@@ -147,8 +147,11 @@ def sum_all(arr: NDArray):
 
     return np.sum(arr)
 
-# Step 24 - sum_axis0 (not yet solved)
-# TODO: implement
+# Step 24 - sum_axis0
+def sum_axis0(arr: NDArray) -> NDArray:
+    """Sum a 2D array along axis 0, collapsing rows into a 1D vector of column sums."""
+
+    return np.sum(arr, axis=0)
 
 # Step 25 - sum_axis1 (not yet solved)
 # TODO: implement
