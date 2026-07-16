@@ -159,8 +159,11 @@ def sum_axis1(arr: NDArray) -> NDArray:
 
     return np.sum(arr, axis=1)
 
-# Step 26 - max_along_axis (not yet solved)
-# TODO: implement
+# Step 26 - max_along_axis
+def max_along_axis(arr: NDArray, axis=None):
+    """Return the maximum of arr along the given axis, with that axis removed."""
+
+    return np.max(arr, axis)
 
 # Step 27 - matmul (not yet solved)
 # TODO: implement
