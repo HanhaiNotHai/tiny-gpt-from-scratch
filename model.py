@@ -967,8 +967,11 @@ def get_multihead_output_sequence_length(x_heads_back: NDArray) -> int:
 
     return x_heads_back.shape[1]
 
-# Step 128 - merge_heads_to_d_model (not yet solved)
-# TODO: implement
+# Step 128 - merge_heads_to_d_model
+def merge_heads_to_d_model(x_heads_back: NDArray):
+    """Reshape (B, T, n_heads, d_head) into (B, T, d_model)."""
+
+    return x_heads_back.reshape(*x_heads_back.shape[:-2], -1)
 
 # Step 129 - multihead_output_projection_forward (not yet solved)
 # TODO: implement
