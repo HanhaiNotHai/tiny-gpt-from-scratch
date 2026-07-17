@@ -646,7 +646,7 @@ def layernorm_backward_subtract_mean(dy: NDArray, cache: dict[str, NDArray | flo
 def layernorm_backward_divide_std(dy: NDArray, cache: dict[str, NDArray | float]):
     """Propagate dy through the divide-by-std step of LayerNorm."""
 
-    return 1 / cache['var']
+    return dy / np.sqrt(cache['var'] + cache['eps'])
 
 # Step 90 - layernorm_backward_full (not yet solved)
 # TODO: implement
