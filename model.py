@@ -765,8 +765,11 @@ def compute_attention_scores(q: NDArray, k: NDArray) -> NDArray:
 
     return np.einsum('bth,bih->bti', q, k)
 
-# Step 104 - scale_attention_scores (not yet solved)
-# TODO: implement
+# Step 104 - scale_attention_scores
+def scale_attention_scores(scores: NDArray, d_head: int) -> NDArray:
+    """Rescale (B, T, T) attention scores by a function of d_head."""
+
+    return scores / np.sqrt(d_head)
 
 # Step 105 - build_causal_mask (not yet solved)
 # TODO: implement
