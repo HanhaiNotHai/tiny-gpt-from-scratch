@@ -783,8 +783,11 @@ def apply_causal_mask(scaled_scores: NDArray, causal_mask: NDArray):
 
     return np.where(causal_mask, scaled_scores, -np.inf)
 
-# Step 107 - softmax_attention_weights (not yet solved)
-# TODO: implement
+# Step 107 - softmax_attention_weights
+def softmax_attention_weights(masked_scores:NDArray):
+    """Row-wise stable softmax over the last axis of (B, T, T) scores."""
+
+    return stable_softmax_2d_rowwise(masked_scores)
 
 # Step 108 - attention_weighted_values (not yet solved)
 # TODO: implement
