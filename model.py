@@ -759,8 +759,11 @@ def compute_value(x: NDArray, w_v: NDArray) -> NDArray:
 
     return np.einsum('btm,mh->bth', x, w_v)
 
-# Step 103 - compute_attention_scores (not yet solved)
-# TODO: implement
+# Step 103 - compute_attention_scores
+def compute_attention_scores(q: NDArray, k: NDArray) -> NDArray:
+    """Return raw attention scores Q @ K^T with shape (B, T, T)."""
+
+    return np.einsum('bth,bih->bti', q, k)
 
 # Step 104 - scale_attention_scores (not yet solved)
 # TODO: implement
