@@ -908,8 +908,11 @@ def reshape_to_heads(x: NDArray, n_heads: int, d_head: int):
 
     return x.reshape(*x.shape[:-1], n_heads, d_head)
 
-# Step 120 - transpose_heads_to_front (not yet solved)
-# TODO: implement
+# Step 120 - transpose_heads_to_front
+def transpose_heads_to_front(x_heads: NDArray):
+    """Transpose (B, T, n_heads, d_head) to (B, n_heads, T, d_head)."""
+
+    return x_heads.swapaxes(-2, -3)
 
 # Step 121 - get_multihead_n_heads (not yet solved)
 # TODO: implement
