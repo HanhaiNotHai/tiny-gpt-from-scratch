@@ -747,8 +747,11 @@ def compute_query(x: NDArray, w_q: NDArray) -> NDArray:
 
     return np.einsum('btm,mh->bth', x, w_q)
 
-# Step 101 - compute_key (not yet solved)
-# TODO: implement
+# Step 101 - compute_key
+def compute_key(x: NDArray, w_k: NDArray) -> NDArray:
+    """Project x through Wk to get keys K of shape (B, T, d_head)."""
+
+    return np.einsum('btm,mh->bth', x, w_k)
 
 # Step 102 - compute_value (not yet solved)
 # TODO: implement
