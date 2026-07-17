@@ -632,7 +632,7 @@ def layernorm_forward_affine(x: NDArray, gamma: NDArray, beta: NDArray, eps: flo
     }
 
 # Step 88 - layernorm_backward_subtract_mean
-def layernorm_backward_subtract_mean(dy: NDArray, cache: dict[str, NDArray | float]):
+def layernorm_backward_subtract_mean(dy: NDArray, cache: dict[str, NDArray | float]) -> NDArray:
     """Gradient through y = x - mean(x, axis=1, keepdims=True).
 
     dy: (B, D) upstream gradient w.r.t. the centered output.
