@@ -741,8 +741,11 @@ def create_qkv_projections(d_model: int, d_head: int, scale=0.02):
         'Wv': scale_w_small(make_2d_random(d_model, d_head, 2), scale),
     }
 
-# Step 100 - compute_query (not yet solved)
-# TODO: implement
+# Step 100 - compute_query
+def compute_query(x: NDArray, w_q: NDArray) -> NDArray:
+    """Project x (B, T, d_model) into queries Q (B, T, d_head) using w_q."""
+
+    return np.einsum('btm,mh->bth', x, w_q)
 
 # Step 101 - compute_key (not yet solved)
 # TODO: implement
