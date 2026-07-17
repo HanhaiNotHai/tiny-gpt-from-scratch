@@ -816,17 +816,18 @@ def output_projection_backward(d_proj: NDArray, cache: dict[str, NDArray]) -> di
     }
 
 # Step 111 - attention_value_backward
-import numpy as np
-
-def attention_value_backward(d_attn_out, cache):
+def attention_value_backward(d_attn_out: NDArray, cache: dict[str, NDArray]):
     """Backprop through out = attn @ V.
 
     d_attn_out: (B, T, d_head) upstream gradient w.r.t. attention output.
     cache: dict with 'attn' of shape (B, T, T) and 'v' of shape (B, T, d_head).
     Returns dict with 'd_attn' (B, T, T) and 'd_v' (B, T, d_head).
     """
-    # TODO: backprop through out = attn @ V to obtain gradients for attn and V.
-    pass
+
+    return {
+        'd_attn': np.einsum('bth,bih->bti', d_attn_out, cache['v']),
+        'd_v': np.einsum('bti,bth->bih', cache['attn'], d_attn_out),
+    }
 
 # Step 112 - masked_softmax_backward (not yet solved)
 # TODO: implement
