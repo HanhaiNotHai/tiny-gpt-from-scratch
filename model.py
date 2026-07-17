@@ -713,8 +713,11 @@ def create_positional_embedding(block_size: int, d_model: int, scale: float = 0.
 
     return scale_w_small(make_2d_random(block_size, d_model), scale)
 
-# Step 96 - slice_positional_embedding (not yet solved)
-# TODO: implement
+# Step 96 - slice_positional_embedding
+def slice_positional_embedding(positional_matrix: NDArray, seq_len: int):
+    """Return the first seq_len rows of the positional embedding matrix."""
+
+    return positional_matrix[:seq_len]
 
 # Step 97 - add_token_and_positional_embeddings (not yet solved)
 # TODO: implement
