@@ -973,8 +973,23 @@ def merge_heads_to_d_model(x_heads_back: NDArray):
 
     return x_heads_back.reshape(*x_heads_back.shape[:-2], -1)
 
-# Step 129 - multihead_output_projection_forward (not yet solved)
-# TODO: implement
+# Step 129 - multihead_output_projection_forward
+def multihead_output_projection_forward(
+    merged: NDArray, w_out: NDArray, b_out: NDArray
+) -> dict[str, NDArray | dict[str, NDArray]]:
+    """Project the merged multi-head output through the output linear layer.
+
+    Inputs:
+      merged: (B, T, d_model)
+      w_out:  (d_model, d_model)
+      b_out:  (d_model,)
+    Returns dict with keys {'out', 'cache'}; cache holds {'merged', 'w_out'}.
+    """
+
+    return {
+        'out': np.einsum('btm,mo->bto', merged, w_out) + b_out,
+        'cache': {'merged': merged, 'w_out': w_out},
+    }
 
 # Step 130 - multihead_reshape_transpose_backward
 def multihead_reshape_transpose_backward(d_merged, shape_info):
