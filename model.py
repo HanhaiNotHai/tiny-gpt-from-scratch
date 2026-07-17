@@ -920,8 +920,11 @@ def get_multihead_n_heads(config: dict[str,int]):
 
     return config['n_heads']
 
-# Step 122 - get_multihead_sequence_length (not yet solved)
-# TODO: implement
+# Step 122 - get_multihead_sequence_length
+def get_multihead_sequence_length(x: NDArray) -> int:
+    """Return T from x of shape (B, T, d_model)."""
+
+    return x.shape[1]
 
 # Step 123 - compute_d_head (not yet solved)
 # TODO: implement
