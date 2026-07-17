@@ -656,7 +656,7 @@ def layernorm_backward_full(dy: NDArray, cache: dict[str, NDArray | float]):
     dbeta: NDArray = np.sum(dy, axis=0)
     dx_hat: NDArray = dy * cache['gamma']
 
-    centered = x - cache['mean']
+    centered = cache['x'] - cache['mean']
 
     dcentered = layernorm_backward_divide_std(dx_hat, cache)
 
@@ -731,8 +731,15 @@ def embedding_sum_backward(d_out: NDArray):
 
     return {'d_token_emb': d_out, 'd_pos_emb': np.sum(d_out, axis=0)}
 
-# Step 99 - create_qkv_projections (not yet solved)
-# TODO: implement
+# Step 99 - create_qkv_projections
+def create_qkv_projections(d_model: int, d_head: int, scale=0.02):
+    '''return a dict with 'Wq','Wk','Wv', each of shape (d_model, d_head)'''
+
+    return {
+        'Wq': scale_w_small(make_2d_random(d_model, d_head), scale),
+        'Wk': scale_w_small(make_2d_random(d_model, d_head), scale),
+        'Wv': scale_w_small(make_2d_random(d_model, d_head), scale),
+    }
 
 # Step 100 - compute_query (not yet solved)
 # TODO: implement
