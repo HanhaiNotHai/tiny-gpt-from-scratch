@@ -999,8 +999,11 @@ def multihead_reshape_transpose_backward(d_merged: NDArray, shape_info: dict[str
         reshape_to_heads(d_merged, shape_info['n_heads'], shape_info['d_head'])
     )
 
-# Step 131 - ffn_linear_one_forward (not yet solved)
-# TODO: implement
+# Step 131 - ffn_linear_one_forward
+def ffn_linear_one_forward(x: NDArray, w1: NDArray, b1: NDArray) -> NDArray:
+    """First FFN linear: lift (B, T, d_model) up to (B, T, d_ff) and add bias."""
+
+    return {'h1': np.einsum('btm,mf->btf', x, w1) + b1, 'cache': {'x': x, 'w1': w1}}
 
 # Step 132 - ffn_activation_forward (not yet solved)
 # TODO: implement
