@@ -699,8 +699,13 @@ def token_embedding_forward(token_ids: NDArray, embedding_matrix: NDArray):
         'vocab_size': embedding_matrix.shape[0],
     }
 
-# Step 94 - token_embedding_backward (not yet solved)
-# TODO: implement
+# Step 94 - token_embedding_backward
+def token_embedding_backward(d_out: NDArray, cache: dict[str, NDArray | int]):
+    '''scatter-add d_out into a (vocab_size, d_model) dE using cache['token_ids'].'''
+
+    dE = make_2d_zeros(cache['vocab_size'], d_out.shape[-1])
+    np.add.at(dE, cache['token_ids'], d_out)
+    return dE
 
 # Step 95 - create_positional_embedding (not yet solved)
 # TODO: implement
