@@ -1008,7 +1008,7 @@ def ffn_linear_one_forward(
     return {'h1': np.einsum('btm,mf->btf', x, w1) + b1, 'cache': {'x': x, 'w1': w1}}
 
 # Step 132 - ffn_activation_forward
-def ffn_activation_forward(h1):
+def ffn_activation_forward(h1: NDArray) -> tuple[NDArray, dict[str, NDArray]]:
     """Apply ReLU to FFN hidden pre-activations.
 
     Args:
@@ -1018,8 +1018,8 @@ def ffn_activation_forward(h1):
         a1: ndarray of shape (B, T, d_ff)
         cache: dict with key 'h1'
     """
-    # TODO: apply ReLU activation in the FFN hidden layer and cache h1
-    pass
+
+    return relu_forward(h1)['y'], {'h1': h1}
 
 # Step 133 - ffn_linear_two_forward (not yet solved)
 # TODO: implement
