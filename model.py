@@ -789,8 +789,16 @@ def softmax_attention_weights(masked_scores:NDArray):
 
     return stable_softmax_2d_rowwise(masked_scores)
 
-# Step 108 - attention_weighted_values (not yet solved)
-# TODO: implement
+# Step 108 - attention_weighted_values
+def attention_weighted_values(attn: NDArray, v: NDArray) -> NDArray:
+    """Combine attention weights with values: out = attn @ V.
+
+    attn: (B, T, T) softmaxed attention weights
+    v:    (B, T, d_head) value vectors
+    returns: (B, T, d_head)
+    """
+
+    return np.einsum('bti,bih->bth', attn, v)
 
 # Step 109 - apply_output_projection (not yet solved)
 # TODO: implement
