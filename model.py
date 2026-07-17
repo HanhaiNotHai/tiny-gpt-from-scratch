@@ -169,7 +169,7 @@ def max_along_axis(arr: NDArray, axis=None):
 def matmul(a: NDArray, b: NDArray) -> NDArray:
     """Return the matrix product a @ b for 2D arrays a (M,K) and b (K,N)."""
 
-    return np.einsum('mk,kn->mn', a, b)
+    return np.einsum('...mk,...kn->...mn', a, b)
 
 # Step 28 - transpose_matrix
 def transpose_matrix(arr: NDArray):
@@ -1029,8 +1029,25 @@ def ffn_linear_two_forward(
 
     return {'h2': np.einsum('btm,mf->btf', a1, w2) + b2, 'cache': {'a1': a1, 'w2': w2}}
 
-# Step 134 - ffn_backward (not yet solved)
-# TODO: implement
+# Step 134 - ffn_backward
+def ffn_backward(d_out: NDArray, cache: dict[str, NDArray]):
+    """Backprop through linear2 -> ReLU -> linear1 of the FFN.
+
+    cache keys: 'x', 'w1', 'h1', 'a1', 'w2'.
+    Returns dict with keys: 'dx', 'dw1', 'db1', 'dw2', 'db2'.
+    """
+
+    da1 = linear_backward_dx(d_out, {'w': cache['w2']})
+    dw2 = linear_backward_dw(d_out, {'x': cache['a1']})
+    db2 = bias_add_backward_db(d_out, None)
+
+    dh1 = relu_backward(da1, {'x': cache['h1']})
+
+    dx = linear_backward_dx(dh1, {'w': cache['w1']})
+    dw1 = linear_backward_dw(dh1, {'x': cache['x']})
+    db1 = bias_add_backward_db(dh1, None)
+
+    return {'dx': dx, 'dw1': dw1, 'db1': db1, 'dw2': dw2, 'db2': db2}
 
 # Step 135 - residual_forward (not yet solved)
 # TODO: implement
