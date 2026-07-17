@@ -1021,8 +1021,13 @@ def ffn_activation_forward(h1: NDArray) -> tuple[NDArray, dict[str, NDArray]]:
 
     return relu_forward(h1)['y'], {'h1': h1}
 
-# Step 133 - ffn_linear_two_forward (not yet solved)
-# TODO: implement
+# Step 133 - ffn_linear_two_forward
+def ffn_linear_two_forward(
+    a1: NDArray, w2: NDArray, b2: NDArray
+) -> dict[str, NDArray | dict[str, NDArray]]:
+    '''project a1 (B, T, d_ff) down to (B, T, d_model) using w2 and b2, return h2 and cache'''
+
+    return {'h2': np.einsum('btm,mf->btf', a1, w2) + b2, 'cache': {'a1': a1, 'w2': w2}}
 
 # Step 134 - ffn_backward (not yet solved)
 # TODO: implement
