@@ -806,8 +806,14 @@ def apply_output_projection(attn_out: NDArray, w_o: NDArray) -> NDArray:
 
     return np.einsum('btd,dm->btm', attn_out, w_o)
 
-# Step 110 - output_projection_backward (not yet solved)
-# TODO: implement
+# Step 110 - output_projection_backward
+def output_projection_backward(d_proj: NDArray, cache: dict[str, NDArray]) -> dict[str, NDArray]:
+    """Backprop through proj = attn_out @ w_o. Return {'d_attn_out', 'dw_o'}."""
+
+    return {
+        'd_attn_out': np.einsum('btm,dm->btd', d_proj, cache['w_o']),
+        'dw_o': np.sum(np.einsum('btd,btm->bdm', cache['attn_out'], d_proj), axis=0),
+    }
 
 # Step 111 - attention_value_backward (not yet solved)
 # TODO: implement
