@@ -719,8 +719,11 @@ def slice_positional_embedding(positional_matrix: NDArray, seq_len: int):
 
     return positional_matrix[:seq_len]
 
-# Step 97 - add_token_and_positional_embeddings (not yet solved)
-# TODO: implement
+# Step 97 - add_token_and_positional_embeddings
+def add_token_and_positional_embeddings(token_emb: NDArray, pos_emb: NDArray):
+    """Sum token embeddings (B,T,d_model) and positional embeddings (T,d_model)."""
+
+    return token_emb + pos_emb
 
 # Step 98 - embedding_sum_backward (not yet solved)
 # TODO: implement
