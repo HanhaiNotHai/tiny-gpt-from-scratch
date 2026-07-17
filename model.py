@@ -711,7 +711,7 @@ def token_embedding_backward(d_out: NDArray, cache: dict[str, NDArray | int]):
 def create_positional_embedding(block_size: int, d_model: int, scale: float = 0.02):
     """Initialize the learned positional embedding matrix P of shape (block_size, d_model)."""
 
-    return scale_w_small(np.random.randn(block_size, d_model), scale)
+    return scale_w_small(make_2d_random(block_size, d_model), scale)
 
 # Step 96 - slice_positional_embedding (not yet solved)
 # TODO: implement
