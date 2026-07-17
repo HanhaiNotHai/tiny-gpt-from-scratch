@@ -753,8 +753,11 @@ def compute_key(x: NDArray, w_k: NDArray) -> NDArray:
 
     return np.einsum('btm,mh->bth', x, w_k)
 
-# Step 102 - compute_value (not yet solved)
-# TODO: implement
+# Step 102 - compute_value
+def compute_value(x: NDArray, w_v: NDArray) -> NDArray:
+    '''project x of shape (B, T, d_model) by w_v of shape (d_model, d_head)'''
+
+    return np.einsum('btm,mh->bth', x, w_v)
 
 # Step 103 - compute_attention_scores (not yet solved)
 # TODO: implement
