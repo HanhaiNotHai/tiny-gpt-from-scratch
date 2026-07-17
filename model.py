@@ -381,7 +381,7 @@ def initialize_w_random(vocab_size: int, rng: Generator):
     return rng.standard_normal((vocab_size, vocab_size))
 
 # Step 58 - scale_w_small
-def scale_w_small(w_matrix: NDArray, scale):
+def scale_w_small(w_matrix: NDArray, scale: float):
     """Return w_matrix scaled by the given small factor."""
 
     return w_matrix * scale
@@ -676,8 +676,11 @@ def layernorm_backward_implementation(d_out: NDArray, cache: dict[str, NDArray |
 
     return layernorm_backward_full(d_out, cache)
 
-# Step 92 - create_token_embedding (not yet solved)
-# TODO: implement
+# Step 92 - create_token_embedding
+def create_token_embedding(vocab_size, d_model, scale=0.02):
+    """Initialize the token embedding matrix E of shape (vocab_size, d_model)."""
+    # TODO: return a (vocab_size, d_model) array of small random values controlled by scale
+    pass
 
 # Step 93 - token_embedding_forward (not yet solved)
 # TODO: implement
