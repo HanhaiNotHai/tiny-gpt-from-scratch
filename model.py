@@ -926,8 +926,14 @@ def get_multihead_sequence_length(x: NDArray) -> int:
 
     return x.shape[1]
 
-# Step 123 - compute_d_head (not yet solved)
-# TODO: implement
+# Step 123 - compute_d_head
+def compute_d_head(d_model: int, n_heads: int):
+    '''return the per-head dimension d_head for multi-head attention.'''
+
+    if d_model % n_heads != 0:
+        raise ValueError
+
+    return d_model // n_heads
 
 # Step 124 - multihead_masked_softmax_scores (not yet solved)
 # TODO: implement
