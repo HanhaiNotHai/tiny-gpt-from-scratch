@@ -777,8 +777,11 @@ def build_causal_mask(seq_len: int):
 
     return np.tril(np.ones((seq_len, seq_len), dtype=bool))
 
-# Step 106 - apply_causal_mask (not yet solved)
-# TODO: implement
+# Step 106 - apply_causal_mask
+def apply_causal_mask(scaled_scores: NDArray, causal_mask: NDArray):
+    """Replace future positions in scaled_scores with -inf using causal_mask."""
+
+    return np.where(causal_mask, scaled_scores, -np.inf)
 
 # Step 107 - softmax_attention_weights (not yet solved)
 # TODO: implement
