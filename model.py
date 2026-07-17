@@ -914,8 +914,11 @@ def transpose_heads_to_front(x_heads: NDArray):
 
     return x_heads.swapaxes(-2, -3)
 
-# Step 121 - get_multihead_n_heads (not yet solved)
-# TODO: implement
+# Step 121 - get_multihead_n_heads
+def get_multihead_n_heads(config: dict[str,int]):
+    '''return the number of attention heads stored in the multi-head config dict.'''
+
+    return config['n_heads']
 
 # Step 122 - get_multihead_sequence_length (not yet solved)
 # TODO: implement
