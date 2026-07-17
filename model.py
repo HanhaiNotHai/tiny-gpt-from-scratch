@@ -847,8 +847,19 @@ def scale_scores_backward(d_scaled_scores: NDArray, d_head: int) -> NDArray:
 
     return d_scaled_scores / np.sqrt(d_head)
 
-# Step 114 - qk_scores_backward (not yet solved)
-# TODO: implement
+# Step 114 - qk_scores_backward
+def qk_scores_backward(d_scores: NDArray, cache: dict[str, NDArray]):
+    """Backprop through scores = Q @ K^T.
+
+    d_scores: (B, T, T)
+    cache: dict with 'q' and 'k', each (B, T, d_head)
+    returns: {'d_q': (B, T, d_head), 'd_k': (B, T, d_head)}
+    """
+
+    return {
+        'd_q': np.einsum('bti,bih->bth', d_scores, cache['k']),
+        'd_k': np.einsum('bth,bti->bih', cache['q'], d_scores),
+    }
 
 # Step 115 - qkv_projection_backward (not yet solved)
 # TODO: implement
