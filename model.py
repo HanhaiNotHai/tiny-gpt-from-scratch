@@ -881,6 +881,9 @@ def qkv_projection_backward(
 def choose_attention_head_config(d_model: int, n_heads: int):
     """Return a config dict {'n_heads', 'd_head', 'd_model'} for multi-head attention."""
 
+    if d_model % n_heads != 0:
+        raise ValueError
+
     return {'n_heads': n_heads, 'd_head': d_model // n_heads, 'd_model': d_model}
 
 # Step 117 - create_multihead_qkv_projections (not yet solved)
