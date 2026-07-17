@@ -632,7 +632,7 @@ def layernorm_forward_affine(x: NDArray, gamma: NDArray, beta: NDArray, eps: flo
     }
 
 # Step 88 - layernorm_backward_subtract_mean
-def layernorm_backward_subtract_mean(dy: NDArray, cache: dict[str, NDArray]) -> NDArray:
+def layernorm_backward_subtract_mean(dy: NDArray, cache: dict[str, NDArray | float]) -> NDArray:
     """Gradient through y = x - mean(x, axis=1, keepdims=True).
 
     dy: (B, D) upstream gradient w.r.t. the centered output.
@@ -643,10 +643,10 @@ def layernorm_backward_subtract_mean(dy: NDArray, cache: dict[str, NDArray]) -> 
     return dy - np.mean(dy, axis=-1, keepdims=True)
 
 # Step 89 - layernorm_backward_divide_std
-def layernorm_backward_divide_std(dy, cache):
+def layernorm_backward_divide_std(dy: NDArray, cache: dict[str, NDArray | float]):
     """Propagate dy through the divide-by-std step of LayerNorm."""
-    # TODO: propagate the upstream gradient through the divide-by-std step of LayerNorm
-    pass
+
+    return 1 / cache['var']
 
 # Step 90 - layernorm_backward_full (not yet solved)
 # TODO: implement
